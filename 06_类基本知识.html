@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06_类基本知识</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // 创建一个Person类
+        class Person{
+            constructor(name,age) {
+                this.name = name
+                this.age = age
+            }
+            speak(){
+                // speak方法放在了类的原型对象上,供实例使用
+                // 通过Person实例，调用speak时，speak中的this就是person实例
+                console.log(`name->${this.name},age->${this.age}`)
+            }
+        }
+        class Student extends Person{
+            constructor(name,age,sex) {
+                super(name,age);
+                this.sex = sex
+            }
+            speak() {
+                console.log(`name->${this.name},age->${this.age},sex->${this.sex}`)
+            }
+        }
+        //
+        const p1 = new Person('tom',20)
+        const p2 = new Person('zjy',18)
+        console.log(p1)
+        console.log(p2)
+        p1.speak()
+        p2.speak()
+        const s1 = new Student('zzz',15,'男')
+        console.log(s1)
+        s1.speak()
+    </script>
+</body>
+</html>

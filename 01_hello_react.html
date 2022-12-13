@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .title{
+            background-color: aqua;
+            width: 66px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 准备好一个容器 -->
+    <div id="test"></div>
+
+    <!-- 引入react核心库 -->
+    <script type="text/javascript" src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <!-- 引入react.dom, 用于支持react操作dom -->
+    <script type="text/javascript" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- 引入babel, 用于将jsx转为js -->
+    <script type="text/javascript" src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <script type="text/babel"> /* 此处一定要写bable */
+        const myId = 'zzz'
+        const myData = 'Hello,React'
+        // 1.创建虚拟DOM
+        const VDOM = (
+            <div>
+                <h1 className='title' id={myId}>
+                    <span style={{color:'red',fontSize:'30px'}}>{myData}</span>
+                </h1>
+                <h1 className='title' id={myId.toUpperCase()}>
+                    <span style={{color:'red',fontSize:'30px'}}>{myData}</span>
+                </h1>
+                <input type="text"/>
+            </div>
+        ) /* 此处一定不要写引号，因为不是字符串 */
+        // 2.渲染虚拟DOM到页面
+        ReactDOM.render(VDOM,document.getElementById('test'))
+    </script>
+</body>
+</html>

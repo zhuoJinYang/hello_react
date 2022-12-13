@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- 准备好一个容器 -->
+    <div id="test1"></div>
+    <div id="test2"></div>
+
+    <!-- 引入react核心库 -->
+    <script type="text/javascript" src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <!-- 引入react.dom, 用于支持react操作dom -->
+    <script type="text/javascript" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- 引入babel, 用于将jsx转为js -->
+    <script type="text/javascript" src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <script type="text/babel"> /* 此处一定要写bable */
+        // 类式组件
+        class MyComponent extends React.Component{
+            // static prototype = {
+            //     name: PropTypes.string.isRequired,
+            //     sex: PropTypes.string,
+            //     age: PropTypes.number,
+            //     speak: PropTypes.func
+            // }
+            // static defaultProps = {
+            //     sex: '男',
+            //     age: 18
+            // }
+            render(){
+                console.log(this)
+                const {name,age,sex} = this.props
+                // render是放在类的原型对象上，供实例使用(组件实例对象)
+                return (
+                    <ul>
+                        <li>姓名：{name}</li>
+                        <li>性别：{sex}</li>
+                        <li>年龄：{age + 1}</li>
+                    </ul>
+                )
+            }
+        }
+        // MyComponent.protoType = {
+        //     name: PropTypes.string.isRequired,
+        //     sex: PropTypes.string,
+        //     age: PropTypes.number,
+        //     speak: PropTypes.func
+        // }
+        // MyComponent.defaultProps = {
+        //     sex: '男',
+        //     age: 18
+        // }
+        ReactDOM.render(<MyComponent name={'tom'} age={18} sex={'男'}/>,document.getElementById('test1'))
+        const p = {name:'老刘',age:18,sex:'女'}
+        ReactDOM.render(<MyComponent {...p}/>,document.getElementById('test2'))
+        console.log({...p})
+    </script>
+</body>
+</html>
