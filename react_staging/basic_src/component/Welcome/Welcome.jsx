@@ -12,10 +12,10 @@ export default class Welcome extends Component{
     )
   }
   getStudentData = () => {
-    axios.get('').then(res => {
-
+    axios.get('xxxxxx').then(res => {
+      console.log('成功了',res.data)
     },err => {
-
+      console.log('失败了',err)
     })
   }
 }
