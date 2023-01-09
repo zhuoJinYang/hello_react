@@ -23810,7 +23810,7 @@
 
     retryTimedOutBoundary(boundaryFiber, retryLane);
   } // Computes the next Just Noticeable Difference (JND) boundary.
-  // The theory is that a person can't tell the difference between small differences in time.
+  // The theory is that a person.js can't tell the difference between small differences in time.
   // Therefore, if we wait a bit longer than necessary that won't translate to a noticeable
   // difference in the experience. However, waiting for longer might mean that we can avoid
   // showing an intermediate loading state. The longer we have already waited, the harder it
